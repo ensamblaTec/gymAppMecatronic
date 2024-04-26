@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter_bluetooth_serial: ^0.4.0
   permission_handler: ^11.3.0
+  # fluttertoast: any
+  
   flutter:
     sdk: flutter
 

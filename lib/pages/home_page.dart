@@ -44,12 +44,19 @@ class _HomePageState extends State<HomePage> {
     return color;
   }
 
-
+  void _requestPermission() async {
+    await Permission.location.request();
+    await Permission.bluetooth.request();
+    await Permission.bluetoothScan.request();
+    await Permission.bluetoothConnect.request();
+  }
 
   @override
   void initState() {
     _pageController.addListener(_listener);
-    
+
+    _requestPermission();
+
     super.initState();
   }
 
@@ -62,25 +69,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: false,
+      extendBodyBehindAppBar: false,
+      appBar: const CustomAppBar(),
       body: Column(
         children: [
-          const CustomAppBar(),
-          SizedBox(
-            height: 50.0,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16.0),
-              child: Row(
-                children: List.generate(
-                  listCategory.length,
-                  (index) => Padding(
-                    padding: const EdgeInsets.only(right: 12.0),
-                    child: Text(
-                      listCategory[index],
-                      style: TextStyle(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 20.0,
-                        color: index == indexPage ? getColor() : Colors.white,
-                      ),
+          // const CustomAppBar(),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: Row(
+              children: List.generate(
+                listCategory.length,
+                (index) => Padding(
+                  padding: const EdgeInsets.only(right: 12.0),
+                  child: Text(
+                    listCategory[index],
+                    style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 20.0,
+                      color: index == indexPage ? getColor() : Colors.white,
                     ),
                   ),
                 ),
