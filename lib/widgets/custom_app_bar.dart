@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/pages/bluetooth/bluetooth_page.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: kToolbarHeight + 80,
+    return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
@@ -25,9 +25,9 @@ class CustomAppBar extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) => const BluetoothPage(),)),
                   icon: const Icon(
-                    Icons.shopping_bag_outlined,
+                    Icons.bluetooth_rounded,
                   ),
                 ),
               ],
@@ -37,4 +37,7 @@ class CustomAppBar extends StatelessWidget {
       ),
     );
   }
+  
+  @override
+  Size get preferredSize => const Size(double.maxFinite, kToolbarHeight + 80);
 }

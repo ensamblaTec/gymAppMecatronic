@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/pages/bluetooth/bluetooth_page.dart';
 import 'package:gym_app/pages/home_page.dart';
 
 void main() {

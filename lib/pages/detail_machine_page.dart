@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/models/treadmill.dart';
-import 'package:gym_app/widgets/custom_buttom.dart';
+import 'package:gym_app/widgets/custom_button.dart';
 import 'package:gym_app/widgets/transition.dart';
 
 class DetailMachinePage extends StatefulWidget {
